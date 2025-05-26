@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Controle Cultural</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="titulo-principal">Meus Filmes 🎥</h1>
+            <nav class="abas">
+                <button class="botao-aba ativo" data-aba="filmes" data-titulo="Meus Filmes 🎥">Filmes Assistidos</button>
+                <button class="botao-aba" data-aba="livros" data-titulo="Meus Livros 📚">Livros Lidos</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Aba Filmes -->
+            <div id="filmes" class="conteudo-aba ativo">
+                <div class="controles">
+                    <div class="container-busca">
+                        <input type="text" id="busca-filme" placeholder="Pesquisar filmes por título...">
+                        <button id="botao-buscar-filme">Buscar</button>
+                    </div>
+                    <button id="botao-adicionar-filme" class="botao-adicionar">+ Adicionar Filme</button>
+                </div>
+
+                <div class="modal" id="modal-filme">
+                    <div class="conteudo-modal">
+                        <span class="botao-fechar">&times;</span>
+                        <h2 id="titulo-modal-filme">Adicionar Novo Filme</h2>
+                        <form id="formulario-filme">
+                            <input type="hidden" id="id-filme">
+                            <div class="grupo-formulario">
+                                <label for="titulo-filme">Título*</label>
+                                <input type="text" id="titulo-filme" required>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="diretor-filme">Diretor*</label>
+                                <input type="text" id="diretor-filme" required>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="ano-filme">Ano*</label>
+                                <input type="number" id="ano-filme" required>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="genero-filme">Gênero*</label>
+                                <input type="text" id="genero-filme" required>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="duracao-filme">Duração (minutos)*</label>
+                                <input type="number" id="duracao-filme" required>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="elenco-filme">Elenco (separado por vírgulas)</label>
+                                <input type="text" id="elenco-filme">
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="classificacao-filme">Classificação Indicativa</label>
+                                <input type="text" id="classificacao-filme">
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="sinopse-filme">Sinopse</label>
+                                <textarea id="sinopse-filme" rows="4"></textarea>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="nota-filme">Sua Nota (0-5)*</label>
+                                <input type="number" id="nota-filme" min="0" max="5" step="0.1" required>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="data-adicao-filme">Data de Adição*</label>
+                                <input type="date" id="data-adicao-filme" required>
+                            </div>
+                            <button type="submit" class="botao-enviar">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="container-itens">
+                    <table id="tabela-filmes">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Diretor</th>
+                                <th>Ano</th>
+                                <th>Gênero</th>
+                                <th>Nota</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-filmes">
+                            <!-- Filmes serão carregados aqui via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Aba Livros -->
+            <div id="livros" class="conteudo-aba">
+                <div class="controles">
+                    <div class="container-busca">
+                        <input type="text" id="busca-livro" placeholder="Pesquisar livros por título...">
+                        <button id="botao-buscar-livro">Buscar</button>
+                    </div>
+                    <button id="botao-adicionar-livro" class="botao-adicionar">+ Adicionar Livro</button>
+                </div>
+
+                <div class="modal" id="modal-livro">
+                    <div class="conteudo-modal">
+                        <span class="botao-fechar">&times;</span>
+                        <h2 id="titulo-modal-livro">Adicionar Novo Livro</h2>
+                        <form id="formulario-livro">
+                            <input type="hidden" id="id-livro">
+                            <div class="grupo-formulario">
+                                <label for="titulo-livro">Título*</label>
+                                <input type="text" id="titulo-livro" required>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="autor-livro">Autor*</label>
+                                <input type="text" id="autor-livro" required>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="ano-livro">Ano de Publicação*</label>
+                                <input type="number" id="ano-livro" required>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="genero-livro">Gênero*</label>
+                                <input type="text" id="genero-livro" required>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="isbn-livro">ISBN</label>
+                                <input type="text" id="isbn-livro">
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="paginas-livro">Número de Páginas</label>
+                                <input type="number" id="paginas-livro">
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="editora-livro">Editora</label>
+                                <input type="text" id="editora-livro">
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="idioma-livro">Idioma Original</label>
+                                <input type="text" id="idioma-livro">
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="sinopse-livro">Sinopse</label>
+                                <textarea id="sinopse-livro" rows="4"></textarea>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="nota-livro">Sua Nota (0-5)*</label>
+                                <input type="number" id="nota-livro" min="0" max="5" step="0.1" required>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="data-adicao-livro">Data de Adição*</label>
+                                <input type="date" id="data-adicao-livro" required>
+                            </div>
+                            <button type="submit" class="botao-enviar">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="container-itens">
+                    <table id="tabela-livros">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>Ano</th>
+                                <th>Gênero</th>
+                                <th>Nota</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-livros">
+                            <!-- Livros serão carregados aqui via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/filmes.js"></script>
+    <script src="js/livros.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
