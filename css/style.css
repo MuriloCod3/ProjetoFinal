@@ -12,7 +12,6 @@
   --sombra: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Reset e Estilos Base */
 * {
     margin: 0;
     padding: 0;
@@ -42,7 +41,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Abas */
 .abas {
     display: flex;
     justify-content: center;
@@ -79,7 +77,6 @@ h1 {
     display: block;
 }
 
-/* Controles */
 .controles {
     display: flex;
     justify-content: space-between;
@@ -140,7 +137,6 @@ h1 {
     background-color: #27ae60;
 }
 
-/* Tabela */
 .container-itens {
     background-color: var(--cor-card);
     border-radius: 8px;
@@ -198,7 +194,6 @@ tr:hover {
     background-color: #c0392b;
 }
 
-/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -237,7 +232,6 @@ tr:hover {
     color: var(--cor-texto);
 }
 
-/* Formulário */
 .grupo-formulario {
     margin-bottom: 15px;
 }
@@ -289,7 +283,6 @@ tr:hover {
     background-color: #2980b9;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .controles {
         flex-direction: column;

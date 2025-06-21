@@ -1,4 +1,3 @@
-// Funções específicas para livros
 document.addEventListener('DOMContentLoaded', function() {
     const formularioLivro = document.getElementById('formulario-livro');
     const modalLivro = document.getElementById('modal-livro');
@@ -8,18 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const botaoBuscarlivro = document.getElementById('botao-buscar-livro');
     const tituloModallivro = document.getElementById('titulo-modal-livro');
 
-    // Carrega livros do localStorage
     function carregarLivros() {
         const livros = JSON.parse(localStorage.getItem('livros')) || [];
         return livros;
     }
 
-    // Salva livros no localStorage
     function salvarLivros(livros) {
         localStorage.setItem('livros', JSON.stringify(livros));
     }
 
-    // Exibe livros na tabela
     function exibirLivros(livros) {
         listaLivros.innerHTML = '';
         
@@ -44,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
             listaLivros.appendChild(linha);
         });
 
-        // Adiciona eventos aos botões de edição e exclusão
         document.querySelectorAll('.botao-editar').forEach(botao => {
             botao.addEventListener('click', editarLivro);
         });
@@ -54,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Abre o modal para adicionar novo livro
     botaoAdicionarLivro.addEventListener('click', function() {
         tituloModallivro.textContent = 'Adicionar Novo Livro';
         formularioLivro.reset();
@@ -63,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modalLivro.style.display = 'block';
     });
 
-    // Edita um livro existente
+
     function editarLivro(e) {
         const id = parseInt(e.target.getAttribute('data-id'));
         const livros = carregarLivros();
@@ -88,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Exclui um livro
     function excluirLivro(e) {
         if (confirm('Tem certeza que deseja excluir este livro?')) {
             const id = parseInt(e.target.getAttribute('data-id'));
@@ -99,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Salva um livro (novo ou editado)
+
     formularioLivro.addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -121,13 +114,11 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         if (id) {
-            // Edição
             const indice = livros.findIndex(l => l.id === parseInt(id));
             if (indice !== -1) {
                 livros[indice] = dadosLivro;
             }
         } else {
-            // Novo livro
             livros.push(dadosLivro);
         }
 
@@ -136,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function() {
         modalLivro.style.display = 'none';
     });
 
-    // Pesquisa livros
     function pesquisarLivros() {
         const termo = buscalivro.value.toLowerCase();
         const livros = carregarLivros();
@@ -158,6 +148,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Carrega os livros ao iniciar
     exibirLivros(carregarLivros());
 });

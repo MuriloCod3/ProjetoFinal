@@ -1,4 +1,4 @@
-// Funções específicas para filmes
+
 document.addEventListener('DOMContentLoaded', function() {
     const formularioFilme = document.getElementById('formulario-filme');
     const modalFilme = document.getElementById('modal-filme');
@@ -8,18 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const botaoBuscarFilme = document.getElementById('botao-buscar-filme');
     const tituloModalFilme = document.getElementById('titulo-modal-filme');
 
-    // Carrega filmes do localStorage
     function carregarFilmes() {
         const filmes = JSON.parse(localStorage.getItem('filmes')) || [];
         return filmes;
     }
 
-    // Salva filmes no localStorage
     function salvarFilmes(filmes) {
         localStorage.setItem('filmes', JSON.stringify(filmes));
     }
 
-    // Exibe filmes na tabela
     function exibirFilmes(filmes) {
         listaFilmes.innerHTML = '';
         
@@ -44,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
             listaFilmes.appendChild(linha);
         });
 
-        // Adiciona eventos aos botões de edição e exclusão
         document.querySelectorAll('.botao-editar').forEach(botao => {
             botao.addEventListener('click', editarFilme);
         });
@@ -54,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Abre o modal para adicionar novo filme
     botaoAdicionarFilme.addEventListener('click', function() {
         tituloModalFilme.textContent = 'Adicionar Novo Filme';
         formularioFilme.reset();
@@ -63,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
         modalFilme.style.display = 'block';
     });
 
-    // Edita um filme existente
     function editarFilme(e) {
         const id = parseInt(e.target.getAttribute('data-id'));
         const filmes = carregarFilmes();
@@ -87,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Exclui um filme
     function excluirFilme(e) {
         if (confirm('Tem certeza que deseja excluir este filme?')) {
             const id = parseInt(e.target.getAttribute('data-id'));
@@ -98,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Salva um filme (novo ou editado)
     formularioFilme.addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -119,13 +111,11 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         if (id) {
-            // Edição
             const indice = filmes.findIndex(f => f.id === parseInt(id));
             if (indice !== -1) {
                 filmes[indice] = dadosFilme;
             }
         } else {
-            // Novo filme
             filmes.push(dadosFilme);
         }
 
@@ -134,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
         modalFilme.style.display = 'none';
     });
 
-    // Pesquisa filmes
     function pesquisarFilmes() {
         const termo = buscaFilme.value.toLowerCase();
         const filmes = carregarFilmes();
@@ -156,6 +145,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Carrega os filmes ao iniciar
     exibirFilmes(carregarFilmes());
 });
