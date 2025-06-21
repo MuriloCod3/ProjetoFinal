@@ -185,13 +185,13 @@ tr:hover {
     background-color: #e67e22;
 }
 
-.botao-excluir {
+.botao-excluir-filme, .botao-excluir-livro {
     background-color: var(--cor-aviso);
     color: white;
 }
 
-.botao-excluir:hover {
-    background-color: #c0392b;
+.botao-excluir-filme:hover, .botao-excluir-livro:hover {
+    background-color: #9c3024;
 }
 
 .modal {
