@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${filme.notaUsuario}</td>
                 <td>
                     <button class="botao-acao botao-editar" data-id="${filme.id}">Editar</button>
-                    <button class="botao-acao botao-excluir" data-id="${filme.id}">Excluir</button>
+                    <button class="botao-acao botao-excluir-filme" data-id="${filme.id}">Excluir</button>
                 </td>
             `;
             listaFilmes.appendChild(linha);
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             botao.addEventListener('click', editarFilme);
         });
 
-        document.querySelectorAll('.botao-excluir').forEach(botao => {
+        document.querySelectorAll('.botao-excluir-filme').forEach(botao => {
             botao.addEventListener('click', excluirFilme);
         });
     }

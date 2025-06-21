@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${livro.notaUsuario}</td>
                 <td>
                     <button class="botao-acao botao-editar" data-id="${livro.id}">Editar</button>
-                    <button class="botao-acao botao-excluir" data-id="${livro.id}">Excluir</button>
+                    <button class="botao-acao botao-excluir-livro" data-id="${livro.id}">Excluir</button>
                 </td>
             `;
             listaLivros.appendChild(linha);
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             botao.addEventListener('click', editarLivro);
         });
 
-        document.querySelectorAll('.botao-excluir').forEach(botao => {
+        document.querySelectorAll('.botao-excluir-livro').forEach(botao => {
             botao.addEventListener('click', excluirLivro);
         });
     }
