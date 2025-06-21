@@ -188,10 +188,12 @@ tr:hover {
 .botao-excluir-filme, .botao-excluir-livro {
     background-color: var(--cor-aviso);
     color: white;
+  
 }
 
 .botao-excluir-filme:hover, .botao-excluir-livro:hover {
     background-color: #9c3024;
+  
 }
 
 .modal {
